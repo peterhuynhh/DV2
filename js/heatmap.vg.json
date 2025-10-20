@@ -1,0 +1,44 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Unemployment per 1,000 population — by State and Year",
+  "width": 830,
+  "height": 400,
+  "data": {"url": "data/unemployment.csv"},
+  "mark": "rect",
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "sort": "ascending",
+      "title": "Year"
+    },
+    "y": {
+      "field": "state",
+      "type": "nominal",
+      "title": "State/Territory",
+      "sort": [
+        "Australian Capital Territory",
+        "New South Wales",
+        "Northern Territory",
+        "Queensland",
+        "South Australia",
+        "Tasmania",
+        "Victoria",
+        "Western Australia"
+      ]
+    },
+    "color": {
+      "field": "unemployment_per_1000",
+      "type": "quantitative",
+      "title": "Unemployed per 1,000",
+      "scale": {"scheme": "greys"}
+    },
+    "tooltip": [
+      {"field": "state", "title": "State"},
+      {"field": "year", "title": "Year"},
+      {"field": "unemployment_per_1000", "format": ".2f", "title": "Unemployed per 1,000"},
+      {"field": "unemployment", "format": ",d", "title": "Unemployed persons"},
+      {"field": "population", "format": ",d", "title": "Population"}
+    ]
+  }
+}

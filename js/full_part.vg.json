@@ -1,0 +1,30 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Full-time vs Part-time Employment",
+  "width": 950,
+  "height": 400,
+  "data": {"url": "data/total_employment.csv"},
+  "transform": [
+    {"calculate": "year(toDate(datum.Date))", "as": "Year"},
+    {
+      "fold": ["Employed_fulltime_persons", "Employed_parttime_persons"],
+      "as": ["Type_raw", "Count"]
+    },
+    {
+      "calculate": "datum.Type_raw == 'Employed_fulltime_persons' ? 'Full-time' : 'Part-time'",
+      "as": "Type"
+    },
+    {"aggregate": [{"op": "sum", "field": "Count", "as": "totalCount"}], "groupby": ["Year", "Type"]}
+  ],
+  "mark": "line",
+  "encoding": {
+    "x": {"field": "Year", "type": "ordinal", "title": "Year", "sort": "ascending"},
+    "y": {"field": "totalCount", "type": "quantitative", "title": "Employment"},
+    "color": {"field": "Type", "title": "Employment Type"},
+    "tooltip": [
+      {"field": "Year", "type": "ordinal", "title": "Year"},
+      {"field": "Type", "type": "nominal", "title": "Employment Type"},
+      {"field": "totalCount", "type": "quantitative", "title": "Total Employed Persons", "format": ",.0f"}
+    ]
+  }
+}

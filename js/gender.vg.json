@@ -1,0 +1,30 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Unemployed persons by gender (annual mean)",
+  "width": 1000,
+  "height": 400,
+  "data": {"url": "data/total_employment.csv"},
+  "transform": [
+    {"calculate": "year(toDate(datum.Date))", "as": "Year"},
+    {
+      "fold": ["Unemployed_total_males", "Unemployed_total_females"],
+      "as": ["Gender_raw", "Unemployed"]
+    },
+    {
+      "calculate": "datum.Gender_raw == 'Unemployed_total_males' ? 'Male' : 'Female'",
+      "as": "Gender"
+    },
+    {"aggregate": [{"op": "mean", "field": "Unemployed", "as": "meanUnemp"}], "groupby": ["Year", "Gender"]}
+  ],
+  "mark": "line",
+  "encoding": {
+    "x": {"field": "Year", "type": "ordinal", "sort": "ascending", "title": "Year"},
+    "y": {"field": "meanUnemp", "type": "quantitative", "title": "Unemployed persons"},
+    "color": {"field": "Gender", "title": "Gender"},
+    "tooltip": [
+      {"field": "Year", "type": "ordinal", "title": "Year"},
+      {"field": "Gender", "type": "nominal", "title": "Gender"},
+      {"field": "meanUnemp", "type": "quantitative", "title": "Unemployed persons", "format": ",.0f"}
+    ]
+  }
+}

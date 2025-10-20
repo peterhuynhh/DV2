@@ -1,0 +1,101 @@
+Year,Industry,Average_weekly_hours,Median_weekly_wage_AUD
+2015,Health Care & Social Assistance,33.2,1080
+2016,Health Care & Social Assistance,33.1,1105
+2017,Health Care & Social Assistance,33.0,1125
+2018,Health Care & Social Assistance,32.9,1150
+2019,Health Care & Social Assistance,32.8,1180
+2020,Health Care & Social Assistance,32.1,1210
+2021,Health Care & Social Assistance,32.4,1200
+2022,Health Care & Social Assistance,32.5,1235
+2023,Health Care & Social Assistance,32.4,1260
+2024,Health Care & Social Assistance,32.3,1285
+2015,Education & Training,35.1,1260
+2016,Education & Training,34.9,1275
+2017,Education & Training,34.8,1290
+2018,Education & Training,34.6,1310
+2019,Education & Training,34.5,1335
+2020,Education & Training,34.6,1360
+2021,Education & Training,34.4,1350
+2022,Education & Training,34.3,1375
+2023,Education & Training,34.2,1395
+2024,Education & Training,34.2,1415
+2015,Manufacturing,38.4,1350
+2016,Manufacturing,38.3,1360
+2017,Manufacturing,38.2,1370
+2018,Manufacturing,38.1,1400
+2019,Manufacturing,38.2,1430
+2020,Manufacturing,38.0,1460
+2021,Manufacturing,37.9,1475
+2022,Manufacturing,37.8,1505
+2023,Manufacturing,37.8,1520
+2024,Manufacturing,37.7,1535
+2015,Construction,39.6,1470
+2016,Construction,39.5,1485
+2017,Construction,39.4,1500
+2018,Construction,39.3,1525
+2019,Construction,39.2,1550
+2020,Construction,39.0,1560
+2021,Construction,39.1,1585
+2022,Construction,39.0,1615
+2023,Construction,38.9,1630
+2024,Construction,38.7,1655
+2015,Retail Trade,31.4,950
+2016,Retail Trade,31.5,960
+2017,Retail Trade,31.2,975
+2018,Retail Trade,31.1,990
+2019,Retail Trade,31.0,1005
+2020,Retail Trade,30.4,980
+2021,Retail Trade,30.7,1010
+2022,Retail Trade,30.8,1030
+2023,Retail Trade,30.7,1050
+2024,Retail Trade,30.6,1075
+2015,Accommodation & Food,29.5,820
+2016,Accommodation & Food,29.7,835
+2017,Accommodation & Food,29.8,850
+2018,Accommodation & Food,29.9,870
+2019,Accommodation & Food,30.0,900
+2020,Accommodation & Food,27.8,860
+2021,Accommodation & Food,28.2,900
+2022,Accommodation & Food,28.6,940
+2023,Accommodation & Food,28.6,980
+2024,Accommodation & Food,28.4,1010
+2015,Mining,42.0,1950
+2016,Mining,42.1,1980
+2017,Mining,42.3,2010
+2018,Mining,42.2,2050
+2019,Mining,42.1,2090
+2020,Mining,42.2,2120
+2021,Mining,42.0,2140
+2022,Mining,41.9,2200
+2023,Mining,41.9,2250
+2024,Mining,41.8,2300
+2015,Information Media & Telecom,37.8,1550
+2016,Information Media & Telecom,37.6,1560
+2017,Information Media & Telecom,37.4,1580
+2018,Information Media & Telecom,37.2,1605
+2019,Information Media & Telecom,37.1,1630
+2020,Information Media & Telecom,37.0,1660
+2021,Information Media & Telecom,36.9,1670
+2022,Information Media & Telecom,36.8,1710
+2023,Information Media & Telecom,36.8,1740
+2024,Information Media & Telecom,36.8,1765
+2015,Professional Services,38.2,1650
+2016,Professional Services,38.1,1670
+2017,Professional Services,38.0,1690
+2018,Professional Services,37.9,1720
+2019,Professional Services,37.8,1750
+2020,Professional Services,37.6,1760
+2021,Professional Services,37.7,1790
+2022,Professional Services,37.6,1830
+2023,Professional Services,37.6,1860
+2024,Professional Services,37.5,1890
+2015,Public Administration & Safety,36.5,1520
+2016,Public Administration & Safety,36.4,1530
+2017,Public Administration & Safety,36.3,1545
+2018,Public Administration & Safety,36.2,1565
+2019,Public Administration & Safety,36.1,1590
+2020,Public Administration & Safety,36.1,1620
+2021,Public Administration & Safety,36.0,1630
+2022,Public Administration & Safety,36.0,1660
+2023,Public Administration & Safety,36.0,1685
+2024,Public Administration & Safety,35.9,1705

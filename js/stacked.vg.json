@@ -1,0 +1,17 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {"url": "data/emp_industry.csv"},
+  "width": 850,
+  "height": 400,
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "Year", "type": "ordinal", "sort": "ascending"},
+    "y": {"aggregate": "sum", "field": "Employed_persons", "type": "quantitative", "title": "Employed persons"},
+    "color": {"field": "Industry"},
+    "tooltip": [
+      {"field": "Year"},
+      {"aggregate": "sum", "field": "Employed_persons", "format": ",d", "title": "Total employed"}
+    ]
+  },
+  "title": "Employment composition by industry"
+}

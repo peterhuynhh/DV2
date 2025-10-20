@@ -1,0 +1,14 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 920,
+  "height": 400,
+  "data": {"url": "data/wages_hours.csv"},
+  "transform": [{"filter": "datum.Year == 2024"}],
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "Average_weekly_hours", "type": "quantitative", "title": "Hours per week"},
+    "y": {"field": "Industry", "type": "nominal", "sort": "-x"},
+    "color": {"field": "Industry", "legend": null}
+  },
+  "title": "Average weekly working hours by industry (2024)"
+}

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+  <style>
+    #unemployed_map .vega-bindings {
+    position: absolute;
+    top: 2rem;
+    left: 16rem;
+  }
+    #unemployed_map { width:100vw; height:60vh; margin-top:6rem; }
+    #unemployed_line { width:100vw; height:60vh; }
+    #year_change { width:100vw; height:60vh; }
+    #full-part { width:100vw; height:60vh; }
+    #labour_working{ width:100vw; height:60vh; }
+    #gender{ width:100vw; height:60vh; }
+    #stacked{ width:100vw; height:60vh; }
+    #heatmap{ width:100vw; height:60vh; }
+    #line_wage{ width:100vw; height:60vh; }
+    #bar_hours{ width:100vw; height:60vh; }
+
+  </style>
+</head>
+<h1 style="display:flex; justify-content: center;">The State of Employment in Australia: Trends in Unemployment, Wages, and Labour Participation</h1>
+<body>
+<div style="display:flex; align-items:flex-start; gap:2rem;">
+  <div id="unemployed_map"></div>
+  <div style="margin-top: 10rem;">
+    The map shows how unemployment per 1,000 population varies across Australian 
+    states and territories across different years. For instance in 2024, Western Australia
+    have tended toward higher unemployment densities compared to more populous states like New South Wales or Victoria. 
+    This geographic pattern highlights how labour-market outcomes can differ and could be influenced by local industry mix (e.g., mining vs services), 
+    demographic pressures and migration flows.
+  </div>
+</div>
+
+<div style="display:flex; align-items:flex-start; gap:2rem;">
+  <div id="unemployed_line"></div>
+  <div>
+The general pattern shows a decline from the pandemic peak in 2020, followed by minor fluctuations and some slight upticks in 2023 before stabilising.
+ That implies recovery momentum, but also that not all states progress uniformly. 
+ The employment-to-population reached a record high ~64.7% in 2024, and participation near 67.1% according to the National Labour Force.
+  </div>
+</div>
+
+<div style="display:flex; align-items:flex-start; gap:2rem;">
+  <div id="year_change"></div>
+  <div>
+In the bar chart of year-over-year changes in total employment/unemployment, we 
+see that some years saw larger employment gains, while other years were 
+Overall, Australia’s labour market has been tight, yet stable. The official unemployment
+ rate has hovered around 4 – 4.5 % recently, with strong employment growth under the current government.  
+  </div>
+</div>
+
+<div style="display:flex; align-items:flex-start; gap:2rem;">
+  <div id="full-part"></div>
+  <div>
+This chart compares full-time and part-time employment across different years. 
+It shows full-time employment recovering faster after the pandemic shock, while part-time roles have grown more slowly. 
+This suggests the labour market isn’t only recovering, but returning to higher-quality employment. 
+The national data show full-time employment for women recently reaching records, and overall employment rising 8.4 % over three years.  
+For example, in December 2024 full-time employment in Australia rose to about 10,058,500 people, and part-time employment to about 4,515,300. 
+ The difference of being a full-time and part-time worker matters. Full-time jobs often typically offer better income security, more hours, and stronger benefits. 
+ The fact that full-time grew faster suggests the recovery is generating stronger labour-market outcomes compared to the rise of part-time or casual roles.
+  Still, there will always be room for improvement for the labour-market.
+  </div>
+</div>
+
+<div style="display:flex; align-items:flex-start; gap:2rem;">
+  <div id="labour_working"></div>
+  <div>
+A rising participation rate and a growing staff of employed people mean Australia is utilising its working-age population better. 
+For example, participation reached ~67 % and employment-to-population ~64.5 % in 2024.  
+  </div>
+</div>
+
+<div style="display:flex; align-items:flex-start; gap:2rem;">
+  <div id="gender"></div>
+  <div>
+The male–female unemployment gap is small and consistent with broader trends of rising female labour force participation in Australia. 
+According to Trading Economics, participation rate recently hit ~67 %.
+In December 2024, the participation rate for men was 71.3% and for women 63.0%.
+ Over recent years, Australia has seen increased female participation which was catalysed by policy shifts.
+ Still, employment-to-population remains higher for men (about 69% vs. 60% for women) in many states, suggesting there is still room for improvment to close the gender gap.
+  </div>
+</div>
+
+<div style="display:flex; align-items:flex-start; gap:2rem;">
+  <div id="stacked"></div>
+  <div>
+The stacked bar chart reveals how long-term unemployment has evolved. 
+Even with the drop of short-term unemployment, unchanging long-term unemployment may remain, which suggests structural issues. 
+Australian labour market research shows employment rate is at record highs but attention remains on under-employment and structural barriers.  
+  </div>
+</div>
+
+<div style="display:flex; align-items:flex-start; gap:2rem;">
+  <div id="heatmap"></div>
+  <div>
+This heat-map highlights how state and year combinations evolve — darker colours where unemployment was higher and lighter colours toward 2024. 
+This visual demonstrates the convergence of unemployment across states over time, serving as a warning to states that are lagging behind.  </div>
+</div>
+
+<div style="display:flex; align-items:flex-start; gap:2rem;">
+  <div id="line_wage"></div>
+  <div>
+This chart underpins the story that wage growth has strengthened post-2022, which supports labour market tightness and improves household incomes. 
+National reports indicate wages rising modestly, and with low unemployment the pressure on wages increases.  
+  </div>
+</div>
+
+<div style="display:flex; align-items:flex-start; gap:2rem;">
+  <div id="bar_hours"></div>
+  <div>
+The chart of average weekly hours by industry in 2024 shows full-time roles being more prominent with higher hours which 
+indicates a stronger demand for labour hours.
+This aligns with strong participation and employment outcomes in recent years.
+According to the ABS for December 2024, total monthly hours worked across all jobs reached 1,975 million hours. 
+ Also, research underlines that industries such as mining and resources (in Western Australia and Queensland) saw higher average hours,
+  driven by project demands and overtime, whereas sectors like retail and hospitality have shown more constrained hours growth, 
+  often due to labour supply shortages.
+  </div>
+</div>
+
+<hr style="margin-top:3rem; margin-bottom:2rem; border:1px solid #ccc;">
+
+<div style="max-width:1000px; margin:auto;">
+  <p>
+    Overall, Australia’s labour market demonstrates strong resilience. 
+    Employment levels not only recovered from the pandemic downturn but reached current record highs, 
+    supported by strong participation and stable unemployment near 4%. 
+    Wage growth and total hours worked both increased, though productivity and real income growth remain key challenges. 
+    However, the differences in employment for different regions and industries still exist, with resource-rich states and full-time positions driving the majority of gains, 
+    while certain service sectors and part-time workers continue to face slower gains.
+  </p>
+  <p>
+    Therefore, the prominent strengths of Australia's employment include recovery, adaptation, and balance.
+    Australia has largely succeeded in rebuilding its employment base while maintaining low unemployment, 
+    however, we still require policies that sustain inclusive growth, enhance productivity, and address 
+    the structural and geographic gaps that remain today.
+  </p>
+
+  <h3>Metadata & Data Sources</h3>
+  <ul>
+    <li><b>Dataset:</b> Australian Bureau of Statistics: Labour Force, Australia</li>
+    <li><b>Author:</b> Peter Huynh</li> 
+    <li><b>Date:</b> 20th of October 2025</li>
+    <li><b>Sources:</b> 
+      <ul>
+        <li>ABS Labour Force, Australia: <a href="https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia/latest-release" target="_blank">abs.gov.au</a></li>
+        <li>Jobs and Skills Australia: Employment Region Dashboards</li>
+        <li>Reserve Bank of Australia: Wage & Productivity Commentary</li>
+      </ul>
+</div>
+
+
+    <script>
+    vegaEmbed("#unemployed_map", "js/unemployed_map.vg.json", { actions: false }).catch(console.error);
+    vegaEmbed("#unemployed_line", "js/unemployed_line.vg.json", { actions: false }).catch(console.error);
+    vegaEmbed("#year_change", "js/year_change.vg.json", { actions: false }).catch(console.error);
+    vegaEmbed("#full-part", "js/full_part.vg.json", { actions: false }).catch(console.error);
+    vegaEmbed("#labour_working", "js/labour_working.vg.json", { actions: false }).catch(console.error);
+    vegaEmbed("#gender", "js/gender.vg.json", { actions: false }).catch(console.error);
+    vegaEmbed("#stacked", "js/stacked.vg.json", { actions: false }).catch(console.error);
+    vegaEmbed("#heatmap", "js/heatmap.vg.json", { actions: false }).catch(console.error);
+    vegaEmbed("#line_wage", "js/line_wage.vg.json", { actions: false }).catch(console.error);
+    vegaEmbed("#bar_hours", "js/bar_hours.vg.json", { actions: false }).catch(console.error);
+
+  </script>
+</body>
+</html>

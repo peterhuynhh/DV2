@@ -1,0 +1,32 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Median Weekly Wage by Industry and Year",
+  "width": 870,
+  "height": 400,
+  "data": {"url": "data/wages_hours.csv"},
+  "mark": "line",
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "ordinal",
+      "title": "Year",
+      "axis": {"format": "d"}
+    },
+    "y": {
+      "field": "Median_weekly_wage_AUD",
+      "type": "quantitative",
+      "title": "Wage (AUD)"
+    },
+    "color": {"field": "Industry", "type": "nominal", "title": "Industry"},
+    "tooltip": [
+      {"field": "Year", "type": "ordinal", "title": "Year"},
+      {"field": "Industry", "type": "nominal", "title": "Industry"},
+      {
+        "field": "Median_weekly_wage_AUD",
+        "type": "quantitative",
+        "title": "Median Weekly Wage (AUD)",
+        "format": ",.0f"
+      }
+    ]
+  }
+}

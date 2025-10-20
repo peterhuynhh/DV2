@@ -1,0 +1,30 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Labour force vs Working-age population",
+  "width": 920,
+  "height": 400,
+  "data": {"url": "data/total_employment.csv"},
+  "transform": [
+    {"calculate": "year(toDate(datum.Date))", "as": "Year"},
+    {
+      "fold": ["Working_age_population_persons", "Labour_force_persons"],
+      "as": ["Group_raw", "Count"]
+    },
+    {
+      "calculate": "datum.Group_raw == 'Working_age_population_persons' ? 'Working-age population' : 'Labour force'",
+      "as": "Group"
+    },
+    {"aggregate": [{"op": "mean", "field": "Count", "as": "Population/Labour Force"}], "groupby": ["Year", "Group"]}
+  ],
+  "mark": "area",
+  "encoding": {
+    "x": {"field": "Year", "type": "ordinal", "sort": "ascending"},
+    "y": {"field": "Population/Labour Force", "type": "quantitative"},
+    "color": {"field": "Group", "title": "Group"},
+    "tooltip": [
+      {"field": "Year", "type": "ordinal", "title": "Year"},
+      {"field": "Group", "type": "nominal", "title": "Group"},
+      {"field": "Population/Labour Force", "type": "quantitative", "title": " Count", "format": ",.0f"}
+    ]
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {"text":"Australia — Unemployed per 1,000 Population by State/Territory (2020-2024)"},
+  "width": 1000,
+  "height": 400,
+  "params": [{
+    "name": "yearFilter",
+    "value": "2024",
+    "bind": {
+      "input": "select",
+      "options": ["2020", "2021", "2022", "2023", "2024"],
+      "name": "Select Year: "
+    }
+  }],
+  "data": {
+    "url": "data/unemployment.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {"filter": "datum.year == yearFilter"},
+    {
+      "lookup": "state",
+      "from": {
+        "data": {
+          "url": "data/states.topo.json",
+          "format": {"type": "topojson", "feature": "STE_2021_AUST_GDA2020"}
+        },
+        "key": "properties.STE_NAME21"
+      },
+      "as": "geo"
+    }
+  ],
+  "projection": {"type": "mercator"},
+  "mark": {"type": "geoshape", "stroke": "#666", "strokeWidth": 0.6},
+  "encoding": {
+    "shape": {"field": "geo", "type": "geojson"},
+    "color": {
+      "field": "unemployment_per_1000",
+      "type": "quantitative",
+      "title": "Unemployed per 1,000",
+      "scale": {
+        "type": "quantize",
+        "scheme": "reds",
+        "domain": [9, 14]
+    },
+  "legend": {
+  "direction": "horizontal",
+  "orient": "bottom-left"
+  }
+    },
+    "tooltip": [
+      {"field": "state", "title": "State/Territory"},
+      {"field": "unemployment_per_1000", "title": "Unemployed per 1,000", "format": ".2f"},
+      {"field": "unemployment", "title": "Total Unemployed", "format": ",.0f"},
+      {"field": "year", "title": "Year"}
+    ]
+  }}

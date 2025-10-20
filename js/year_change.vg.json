@@ -1,0 +1,34 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Year-over-Year Change in Total Employment",
+  "width": 1070,
+  "height": 400,
+  "data": { "url": "data/total_employment.csv" },
+  "transform": [
+    { "calculate": "year(toDate(datum.Date))", "as": "yy" },
+    {
+      "aggregate": [{ "op": "mean", "field": "Employed_total_persons", "as": "emp_mean" }],
+      "groupby": ["yy"]
+    },
+    {
+      "window": [{ "op": "lag", "field": "emp_mean", "as": "prev" }],
+      "sort": [{ "field": "yy" }]
+    },
+    { "calculate": "datum.prev ? datum.emp_mean - datum.prev : null", "as": "yoy" }
+  ],
+  "layer": [
+    { "mark": "rule", "encoding": { "y": { "value": 0 }, "color": { "value": "#aaa" } } },
+    {
+      "mark": { "type": "line", "point": false },
+      "encoding": {
+        "x": { "field": "yy", "type": "ordinal", "title": "Year", "sort": "ascending" },
+        "y": { "field": "yoy", "type": "quantitative", "title": "Δ Employment (Year over Year)" },
+        "tooltip": [
+          { "field": "yy", "title": "Year" },
+          { "field": "emp_mean", "title": "Employment", "format": ",.0f" },
+          { "field": "yoy", "title": "Year over Year change", "format": ",.0f" }
+        ]
+      }
+    }
+  ]
+}

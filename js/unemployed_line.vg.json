@@ -1,0 +1,19 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Unemployment per 1,000 by State and Year",
+  "width": 950,
+  "height": 400,
+  "data": { "url": "data/unemployment.csv", "format": { "type": "csv" } },
+  "mark": "bar",
+  "encoding": {
+    "x": { "field": "year", "type": "ordinal", "title": "Year" },
+    "y": { "field": "unemployment_per_1000", "type": "quantitative", "title": "Unemployed per 1,000" },
+    "color": { "field": "state", "type": "nominal", "title": "State/Territory" },
+    "tooltip": [
+      { "field": "state", "title": "State/Territory" },
+      { "field": "year", "title": "Year" },
+      { "field": "unemployment_per_1000", "title": "Unemployed per 1,000", "format": ".2f" }
+    ]
+  },
+  "config": { "legend": { "orient": "bottom" } }
+}
